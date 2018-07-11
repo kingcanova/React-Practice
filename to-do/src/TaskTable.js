@@ -7,9 +7,17 @@ class Table extends Component{
         super(props);
     }
     
-    crossOut = (item) =>
+    crossOut(item)
     {
-        
+        var itemName = document.getElementById(item);
+        if(itemName.className == "unchecked")
+        {
+            itemName.className = "checked";
+        }
+        else
+        {
+            itemName.className = "unchecked";
+        }
     }
     
     render()
@@ -18,7 +26,7 @@ class Table extends Component{
             <table>
                 <tbody>
                 {
-                    this.props.items.map((item) => <tr key = {item} id = {item}><td> <input type="checkbox" value="items" onChange={this.crossOut({item})}/> {item}</td>
+                    this.props.items.map((item) => <tr key = {item}><td id = {item} className = "unchecked"> <input type="checkbox" onClick={() => this.crossOut(item)}/> {item}</td>
                     </tr>
                     )
                 }   

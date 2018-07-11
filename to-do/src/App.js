@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Table from './TaskTable.js';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -48,7 +47,10 @@ class App extends Component {
                 <p id="warning"> Please type in an item to add it to the To-Do list! </p> 
                 <button>Submit</button>
             </form>
-            <Table items = {this.state.items}/>
+            <p></p>
+            <div className = "tableDiv">
+                <Table items = {this.state.items}/>
+            </div>
           </div>
         );
     }

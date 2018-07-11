@@ -9,20 +9,35 @@ form p{
     color: crimson;
 }
 
-table {
+.tableDiv table {
+    margin-left: auto;
+    margin-right: auto;
     width: 800px;
-    height: 900px;
     color: green;
-    border-style: dotted;
+    border-style: solid;
     border-color: black;
 }
 
+.tableDiv {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 
+}
+
+.checked {
+    text-decoration-line: line-through;
+}
+
+.unchecked {
+    text-decoration-line: none;
+}
 
 th, td {
     padding-left: 20px;
     padding-right: 20px;
     border-bottom: 1px solid #ddd;
+    text-align: left; 
 }
 
 tr:hover {background-color: #f5f5f5;}
