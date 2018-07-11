@@ -20,13 +20,18 @@ class Table extends Component{
         }
     }
     
+    delete(item)
+    {
+        this.props.delete(item);
+    }
+    
     render()
     {
         return(
             <table>
                 <tbody>
                 {
-                    this.props.items.map((item) => <tr key = {item}><td id = {item} className = "unchecked"> <input type="checkbox" onClick={() => this.crossOut(item)}/> {item}</td>
+                    this.props.items.map((item) => <tr key = {item}><td id = {item} className = "unchecked"> <input type="checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button > wo </button></td>
                     </tr>
                     )
                 }   
@@ -36,5 +41,6 @@ class Table extends Component{
         );
     }
 }
+
 
 export default Table;

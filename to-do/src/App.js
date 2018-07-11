@@ -37,6 +37,12 @@ class App extends Component {
             });
         }
     }
+    handleDelete(item)
+    {
+        this.setState(prevState => ({
+            items: prevState.data.filter(el => el != item)
+        }));
+    }
     
     render() {
         return(
@@ -49,7 +55,7 @@ class App extends Component {
             </form>
             <p></p>
             <div className = "tableDiv">
-                <Table items = {this.state.items}/>
+                <Table items = {this.state.items} />
             </div>
           </div>
         );
