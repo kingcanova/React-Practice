@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import Table from './TaskTable.js';
+import DATA from './data.js';
 import './App.css';
 
 class App extends Component {
     constructor(props)
     {
+        console.log(DATA.items);
         super(props);
         this.state = {
             term: '',
-            items: []
+            items: DATA.items,
+            checked: DATA.checked
         };
     }
     
@@ -55,7 +58,7 @@ class App extends Component {
             </form>
             <p></p>
             <div className = "tableDiv">
-                <Table items = {this.state.items} delete = {this.delete.bind(this)}/>
+                <Table items = {this.state.items} checked = {this.state.checked} delete = {this.delete.bind(this)}/>
             </div>
           </div>
         );

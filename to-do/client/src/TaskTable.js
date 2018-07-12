@@ -5,6 +5,7 @@ class Table extends Component{
     constructor(props)
     {
         super(props);
+        //console.log(props);
     }
     
     crossOut(item)
@@ -20,6 +21,24 @@ class Table extends Component{
         }
     }
     
+    componentDidMount()
+    {
+        console.log("got here");
+        var i;
+        var allboxes = document.getElementsByClassName("checkbox");
+        var allItems = document.getElementsByName("unchecked");
+        console.log(allItems.length);
+        for(i = 0; i < allboxes.length; i++)
+        {
+            if(this.props.checked[i] == 1)
+            {
+                console.log(allItems[i]);
+                allItems[i].className = "checked";
+                allboxes[i].checked = true;
+            }
+        }
+    }
+    
     delete(item)
     {
         this.props.delete(item);
@@ -31,7 +50,7 @@ class Table extends Component{
             <table>
                 <tbody>
                 {
-                    this.props.items.map((item) => <tr key = {item}><td id = {item} className = "unchecked"> <input type="checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button className = "delete" onClick={this.delete.bind(this,item)}> Delete </button></td>
+                    this.props.items.map((item, index) => <tr key = {item}><td id = {item} className = "unchecked" name="unchecked"> <input type="checkbox" className = "checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button className = "delete" onClick={this.delete.bind(this,item)}> Delete </button></td>
                     </tr>
                     )
                 }   
