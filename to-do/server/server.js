@@ -6,6 +6,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
+import { getSecret } from './secret';
 
 // and create our instances
 const app = express();
@@ -17,6 +18,12 @@ const API_PORT = process.env.API_PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
+
+// db config -- set your URI from mLab in secrets.js
+console.log(getSecret('dbURI'));
+mongoose.connect(getSecret('dbURI'));
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // now we can set the route path & initialize the API
 router.get('/', (req, res) => {
