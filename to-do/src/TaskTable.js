@@ -31,7 +31,7 @@ class Table extends Component{
             <table>
                 <tbody>
                 {
-                    this.props.items.map((item) => <tr key = {item}><td id = {item} className = "unchecked"> <input type="checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button > wo </button></td>
+                    this.props.items.map((item) => <tr key = {item}><td id = {item} className = "unchecked"> <input type="checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button className = "delete" onClick={this.delete.bind(this,item)}> Delete </button></td>
                     </tr>
                     )
                 }   

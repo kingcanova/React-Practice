@@ -37,10 +37,10 @@ class App extends Component {
             });
         }
     }
-    handleDelete(item)
+    delete(item)
     {
         this.setState(prevState => ({
-            items: prevState.data.filter(el => el != item)
+            items: prevState.items.filter(el => el != item)
         }));
     }
     
@@ -55,7 +55,7 @@ class App extends Component {
             </form>
             <p></p>
             <div className = "tableDiv">
-                <Table items = {this.state.items} />
+                <Table items = {this.state.items} delete = {this.delete.bind(this)}/>
             </div>
           </div>
         );
