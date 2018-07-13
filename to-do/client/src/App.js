@@ -10,11 +10,31 @@ class App extends Component {
         super(props);
         this.state = {
             term: '',
+            error: null,
             items: DATA.items,
-            checked: DATA.checked
+            checked: DATA.checked,
+            data: []
+
         };
     }
     
+    componentDidMount() 
+    {
+        this.loadListItems();
+    }
+
+    loadListItems = () =>
+    {
+        fetch('/api/items')
+            .then(data => data.json())
+            .then((res) => 
+            {
+                if(!res.success) this.setState({error: res.error});
+                else this.setState({data: res.data});
+                console.log(data);
+            });
+    }
+
     onChange = (event) => {
         this.setState({term: event.target.value});
     }
