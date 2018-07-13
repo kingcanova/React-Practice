@@ -31,6 +31,30 @@ router.get('/', (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
+router.get('/items',(req,res) => 
+{
+  listItem.find((err,items) =>
+  {
+    if(err) return res.json({success: false, error:err});
+    return res.json({success: true, data: items});
+  });
+});
+
+router.post('/items',(req,res) =>
+{
+  const newItem = new listItem();
+
+  const {item, checked} = req.body;
+  newItem.item = item;
+  newItem.checked = checked;
+  newItem.save(err => 
+  {
+    if(err) return res.json({success: false, error: err});
+    return res.json({success: true});
+  });
+
+});
+
 // Use our router configuration when we call /api
 app.use('/api', router);
 
