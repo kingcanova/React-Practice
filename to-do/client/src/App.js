@@ -13,7 +13,7 @@ class App extends Component {
             error: null,
             items: DATA.items,
             checked: DATA.checked,
-            data: []
+            testing: []
 
         };
     }
@@ -30,8 +30,8 @@ class App extends Component {
             .then((res) => 
             {
                 if(!res.success) this.setState({error: res.error});
-                else this.setState({data: res.data});
-                console.log(data);
+                else this.setState({testing: res.data});
+                console.log(this.state.testing);
             });
     }
 
