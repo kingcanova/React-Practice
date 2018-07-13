@@ -45,6 +45,7 @@ router.post('/items',(req,res) =>
   const newItem = new listItem();
 
   const {item, checked} = req.body;
+  console.log(req.body);
   newItem.item = item;
   newItem.checked = checked;
   newItem.save(err => 
