@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import { getSecret } from './secret';
+import listItem from './models/list';
 
 // and create our instances
 const app = express();
