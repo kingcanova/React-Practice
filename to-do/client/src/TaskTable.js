@@ -20,6 +20,25 @@ class Table extends Component{
             itemName.className = "unchecked";
         }
     }
+    setUpItems()
+    {
+        //console.log("got here");
+        var i;
+        var allboxes = document.getElementsByClassName("checkbox");
+        var allItems = document.getElementsByName("unchecked");
+        console.log("Length of Items list: " + allItems.length);
+        for(i = 0; i < allboxes.length; i++)
+        {
+            if(this.props.checked[i] == 1)
+            {
+                //console.log(allItems[i]);
+                allItems[i].className = "checked";
+                allboxes[i].checked = true;
+            }
+            console.log(this.props.checked[i]);
+            console.log(allItems[i]);
+        }
+    }
     componentDidMount()
     {
         //console.log("got here");
@@ -60,6 +79,7 @@ class Table extends Component{
             </table>
         
         );
+        this.setUpItems();
     }
 }
 
