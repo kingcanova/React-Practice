@@ -34,8 +34,7 @@ class App extends Component {
     printItemList = async () =>
     {
         const testItems = await this.loadItemsDiff();
-        const stuff = await testItems.json();
-        console.log(stuff);
+        console.log(testItems);
         return testItems;
     }
     loadListItems = () =>
