@@ -16,6 +16,9 @@ class App extends Component {
             testing: []
 
         };
+        this.dumbStuff = {
+            list: []
+        };
         //this.loadListItems();
     }
     
@@ -23,6 +26,7 @@ class App extends Component {
     {
         //this.loadListItems();
         console.log(this.printItemList());
+        console.log(this.dumbStuff.list);
 
     }
 
@@ -70,6 +74,7 @@ class App extends Component {
                 console.log(newItems);
                 console.log(newChecked);
                 console.log("out of loadItemsDiff");
+                this.dumbStuff.list.push(newItems);
                 return newItems;
             });
     }
