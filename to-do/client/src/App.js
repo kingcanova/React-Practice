@@ -32,7 +32,7 @@ class App extends Component {
     }
     loadListItems = () =>
     {
-        return fetch('/api/items')
+        fetch('/api/items')
             .then(data => data.json())
             .then((res) => 
             {
@@ -49,6 +49,7 @@ class App extends Component {
                         });
                 }
             });
+        return res.data;
     }
 
     onChange = (event) => {
