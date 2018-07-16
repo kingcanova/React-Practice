@@ -27,7 +27,7 @@ class App extends Component {
     {
         //this.loadListItems();
         console.log(this.printItemList());
-        console.log(this.dumbStuff.list);
+        //console.log(this.dumbStuff.list);
         this.setState({items: this.dumbStuff.list, checked: this.dumbStuff.c});
 
     }
@@ -70,14 +70,14 @@ class App extends Component {
                 for(var i in res.data)
                 {
                     //console.log(this.state.testing[i].item);
-                    newItems.push(res.data[i].item);
-                    newChecked.push(res.data[i].checked)
+                    this.dumbStuff.list.push(res.data[i].item);
+                    this.dumbStuff.c.push(res.data[i].checked)
                 }
-                console.log(newItems);
-                console.log(newChecked);
-                console.log("out of loadItemsDiff");
-                this.dumbStuff.list.push(newItems);
-                this.dumbStuff.c.push(newChecked);
+                //console.log(newItems);
+                //console.log(newChecked);
+                //console.log("out of loadItemsDiff");
+                //this.dumbStuff.list.push(newItems);
+                //this.dumbStuff.c.push(newChecked);
                 return newItems;
             });
     }
