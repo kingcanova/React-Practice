@@ -33,7 +33,6 @@ class App extends Component {
     printItemList = async() =>
     {
         const testItems = await this.loadItemsDiff();
-        console.log("printItem: " + testItems);
         return testItems;
     }
     loadListItems = () =>
@@ -59,7 +58,7 @@ class App extends Component {
 
     loadItemsDiff = () =>
     {
-        return fetch('/api/items')
+        fetch('/api/items')
             .then(data => data.json())
             .then((res) => 
             {
@@ -73,6 +72,7 @@ class App extends Component {
                 }
                 console.log("ItemsDiff: " + newChecked);
                 console.log("ItemsDiff: " + newItems);
+                return newItems;
             });
     }
 
