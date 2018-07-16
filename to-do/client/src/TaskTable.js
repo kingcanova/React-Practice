@@ -20,6 +20,29 @@ class Table extends Component{
             itemName.className = "unchecked";
         }
     }
+
+    componentDidUpdate()
+    {
+        if(this.prevState.items.length != this.state.items.length)
+        {
+            console.log("Keep count");
+            var i;
+            var allboxes = document.getElementsByClassName("checkbox");
+            var allItems = document.getElementsByName("unchecked");
+            console.log("Length of Items list: " + allItems.length);
+            for(i = 0; i < allboxes.length; i++)
+            {
+                if(this.props.checked[i] == 1)
+                {
+                    //console.log(allItems[i]);
+                    allItems[i].className = "checked";
+                    allboxes[i].checked = true;
+                }
+                console.log(this.props.checked[i]);
+                console.log(allItems[i]);
+            }
+        }
+    }
     componentDidMount()
     {
         //console.log("got here");
@@ -48,8 +71,8 @@ class Table extends Component{
     render()
     {
         //console.log("RENDERING BEFORE ALL ITEMS ARE LOADED");
-        var newHTML = 
-        <table>
+        return(
+            <table>
                 <tbody>
                 {
                     this.props.items.map((item, index) => <tr key = {item}><td id = {item} className = "unchecked" name="unchecked"> <input type="checkbox" className = "checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button className = "delete" onClick={this.delete.bind(this,item)}> Delete </button></td>
@@ -57,8 +80,7 @@ class Table extends Component{
                     )
                 }   
                 </tbody>
-            </table>;
-        return(newHTML
+            </table>
         
         );
     }
