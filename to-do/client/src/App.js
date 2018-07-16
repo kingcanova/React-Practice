@@ -32,13 +32,13 @@ class App extends Component {
     }
     loadListItems = () =>
     {
-        return fetch('/api/items')
+        fetch('/api/items')
             .then(data => data.json())
             .then((res) => 
             {
                 if(!res.success) this.setState({error: res.error});
                 else this.setState({testing: res.data});
-                //console.log(this.state.testing);
+                console.log(res.data.item);
                 for(var i in res.data)
                 {
                     //console.log(this.state.testing[i].item);
