@@ -34,6 +34,7 @@ class App extends Component {
     {
         const testItems = await this.loadItemsDiff();
         console.log(this.dumbStuff.c);
+        console.log(this.dumbStuff.list);
         return testItems;
     }
     loadListItems = () =>
@@ -72,6 +73,7 @@ class App extends Component {
                     newChecked.push(res.data[i].checked);
                 }
                 this.dumbStuff.c.push(newChecked);
+                this.dumbStuff.list = newItems;
                 console.log("ItemsDiff: " + newChecked);
                 console.log("ItemsDiff: " + newItems);
                 console.log(this.dumbStuff.c);
