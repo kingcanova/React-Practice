@@ -6,7 +6,7 @@ import './App.css';
 class App extends Component {
     constructor(props)
     {
-        console.log(DATA.items);
+        //console.log(DATA.items);
         super(props);
         this.state = {
             term: '',
@@ -16,11 +16,12 @@ class App extends Component {
             testing: []
 
         };
+        this.loadListItems();
     }
     
     componentDidMount() 
     {
-        this.loadListItems();
+        //this.loadListItems();
     }
 
     loadListItems = () =>
