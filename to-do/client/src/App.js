@@ -11,8 +11,8 @@ class App extends Component {
         this.state = {
             term: '',
             error: null,
-            items: DATA.items,
-            checked: DATA.checked,
+            items: [],
+            checked: [],
             testing: []
 
         };

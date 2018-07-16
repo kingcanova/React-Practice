@@ -48,6 +48,7 @@ class Table extends Component{
     
     render()
     {
+        console.log("RENDERING BEFORE ALL ITEMS ARE LOADED");
         return(
             <table>
                 <tbody>
