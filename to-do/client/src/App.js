@@ -21,6 +21,7 @@ class App extends Component {
     
     componentDidMount() 
     {
+        const self = this;
         this.loadListItems();
     }
 
@@ -88,7 +89,9 @@ class App extends Component {
             </form>
             <p></p>
             <div className = "tableDiv">
+            {this.state && this.state.items &&
                 <Table items = {this.state.items} checked = {this.state.checked} delete = {this.delete.bind(this)}/>
+            }
             </div>
           </div>
         );
