@@ -48,8 +48,8 @@ class Table extends Component{
     render()
     {
         //console.log("RENDERING BEFORE ALL ITEMS ARE LOADED");
-        return(
-            <table>
+        var newHTML = 
+        <table>
                 <tbody>
                 {
                     this.props.items.map((item, index) => <tr key = {item}><td id = {item} className = "unchecked" name="unchecked"> <input type="checkbox" className = "checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button className = "delete" onClick={this.delete.bind(this,item)}> Delete </button></td>
@@ -57,7 +57,8 @@ class Table extends Component{
                     )
                 }   
                 </tbody>
-            </table>
+            </table>;
+        return(newHTML
         
         );
     }

@@ -120,7 +120,6 @@ class App extends Component {
     
     render() {
         //console.log("got to the render part");
-        this.printItemList();
         return(
           <div className="App">
             <h1> To-Do List: </h1>
