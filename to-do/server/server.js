@@ -41,7 +41,7 @@ router.get('/items', async (req,res) =>
   //  return res.json({success: true, data: items});
   //}); 
   const items = await listItem.find({})
-  res.success(items);
+  return res.json({success: true, data: items});
 });
 
 router.post('/items',(req,res) =>
