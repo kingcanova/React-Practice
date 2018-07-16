@@ -27,7 +27,7 @@ class App extends Component {
     {
         //this.loadListItems();
         console.log(this.printItemList());
-        console.log(this.state.checked);
+        console.log(this.dumbStuff.c);
 
     }
 
@@ -68,14 +68,10 @@ class App extends Component {
                 if(!res.success) this.setState({error: res.error});
                 for(var i in res.data)
                 {
-                    //console.log(this.state.testing[i].item);
-                    this.setState(
-                        {
-                            items: [...this.state.items,res.data[i].item],
-                            checked: [...this.state.checked,res.data[i].checked]
-                        });
+                    newChecked.push(res.data[i].checked);
                 }
-                return this.state;
+                this.dumbStuff.c = newChecked;
+                return newChecked;
             });
     }
 
