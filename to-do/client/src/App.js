@@ -26,15 +26,14 @@ class App extends Component {
     componentDidMount() 
     {
         //this.loadListItems();
-        const k = await this.printItemList();
-        console.log(this.dumbStuff.c);
-        console.log(k);
+        console.log(this.printItemList());
 
     }
 
-    printItemList = async () =>
+    printItemList = async() =>
     {
         const testItems = await this.loadItemsDiff();
+        console.log("printItem: " + testItems);
         return testItems;
     }
     loadListItems = () =>
@@ -60,7 +59,7 @@ class App extends Component {
 
     loadItemsDiff = () =>
     {
-        fetch('/api/items')
+        return fetch('/api/items')
             .then(data => data.json())
             .then((res) => 
             {
@@ -69,11 +68,11 @@ class App extends Component {
                 if(!res.success) this.setState({error: res.error});
                 for(var i in res.data)
                 {
+                    newItems.push(res.data[i].item);
                     newChecked.push(res.data[i].checked);
                 }
-                this.dumbStuff.c = newChecked;
                 console.log("ItemsDiff: " + newChecked);
-                return res.data;
+                console.log("ItemsDiff: " + newItems);
             });
     }
 
