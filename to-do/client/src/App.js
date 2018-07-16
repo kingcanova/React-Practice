@@ -22,13 +22,14 @@ class App extends Component {
     componentDidMount() 
     {
         //this.loadListItems();
-        this.printItemList();
+        console.log(this.printItemList());
+
     }
 
     printItemList = async () =>
     {
         var testItems = await this.loadItemsDiff();
-        console.log(testItems);
+        return testItems;
     }
     loadListItems = () =>
     {
