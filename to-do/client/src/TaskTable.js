@@ -22,7 +22,7 @@ class Table extends Component{
     }
     componentDidMount()
     {
-        //console.log("got here");
+        /* //console.log("got here");
         var i;
         var allboxes = document.getElementsByClassName("checkbox");
         var allItems = document.getElementsByName("unchecked");
@@ -37,7 +37,7 @@ class Table extends Component{
             }
             console.log(this.props.checked[i]);
             console.log(allItems[i]);
-        }
+        } */
     }
 
     componentDidUpdate()
@@ -55,8 +55,8 @@ class Table extends Component{
                 allItems[i].className = "checked";
                 allboxes[i].checked = true;
             }
-            console.log(this.props.checked[i]);
-            console.log(allItems[i]);
+            console.log(i);
+            //console.log(allItems[i]);
         }
     }
     
@@ -67,7 +67,7 @@ class Table extends Component{
     
     render()
     {
-        console.log("RENDERING BEFORE ALL ITEMS ARE LOADED");
+        //console.log("RENDERING BEFORE ALL ITEMS ARE LOADED");
         return(
             <table>
                 <tbody>
