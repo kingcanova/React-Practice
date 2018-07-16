@@ -35,6 +35,10 @@ class App extends Component {
         const testItems = await this.loadItemsDiff();
         console.log(this.dumbStuff.c);
         console.log(this.dumbStuff.list);
+        this.setState({
+            items: [...this.state.items,this.dumbStuff.list],
+            checked: [...this.state.checked,this.dumbStuff.c]
+        });
         return testItems;
     }
     loadListItems = () =>
@@ -114,7 +118,7 @@ class App extends Component {
     }
     
     render() {
-        console.log("got to the render part");
+        //console.log("got to the render part");
         return(
           <div className="App">
             <h1> To-Do List: </h1>
