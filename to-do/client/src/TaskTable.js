@@ -20,7 +20,6 @@ class Table extends Component{
             itemName.className = "unchecked";
         }
     }
-    
     componentDidMount()
     {
         //console.log("got here");
@@ -52,7 +51,7 @@ class Table extends Component{
         return(
             <table>
                 <tbody>
-                {this.state && this.state.items &&
+                {
                     this.props.items.map((item, index) => <tr key = {item}><td id = {item} className = "unchecked" name="unchecked"> <input type="checkbox" className = "checkbox" onClick={() => this.crossOut(item)}/> {item} </td><td> <button className = "delete" onClick={this.delete.bind(this,item)}> Delete </button></td>
                     </tr>
                     )

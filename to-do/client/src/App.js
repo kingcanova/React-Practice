@@ -21,7 +21,6 @@ class App extends Component {
     
     componentDidMount() 
     {
-        const self = this;
         this.loadListItems();
     }
 
