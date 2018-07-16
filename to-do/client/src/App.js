@@ -115,6 +115,7 @@ class App extends Component {
     
     render() {
         return(
+            console.log("got to the render part");
           <div className="App">
             <h1> To-Do List: </h1>
             <form className="table" onSubmit={this.onSubmit}>
