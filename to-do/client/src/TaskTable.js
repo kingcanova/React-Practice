@@ -26,7 +26,7 @@ class Table extends Component{
         var i;
         var allboxes = document.getElementsByClassName("checkbox");
         var allItems = document.getElementsByName("unchecked");
-        console.log(allItems.length);
+        console.log("Length of Items list: " + allItems.length);
         for(i = 0; i < allboxes.length; i++)
         {
             if(this.props.checked[i] == 1)
