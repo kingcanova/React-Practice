@@ -34,7 +34,8 @@ class App extends Component {
     printItemList = async () =>
     {
         const testItems = await this.loadItemsDiff();
-        console.log(this.dumbStuff.c);
+        const stuff = await testItems.json();
+        console.log(stuff);
         return testItems;
     }
     loadListItems = () =>
@@ -72,7 +73,8 @@ class App extends Component {
                     newChecked.push(res.data[i].checked);
                 }
                 this.dumbStuff.c = newChecked;
-                return newChecked;
+                console.log("ItemsDiff: " + newChecked);
+                return res.data;
             });
     }
 
