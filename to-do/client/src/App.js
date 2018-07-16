@@ -27,13 +27,13 @@ class App extends Component {
     {
         //this.loadListItems();
         console.log(this.printItemList());
-        console.log(this.dumbStuff.c);
 
     }
 
     printItemList = async () =>
     {
         var testItems = await this.loadItemsDiff();
+        console.log(this.dumbStuff.c);
         return testItems;
     }
     loadListItems = () =>
