@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 router.get('/items', async (req,res) => 
 {
   //console.log('Got to .get');
-  var items = await self.getItems();
+  var items = await this.getItems();
   console.log(items);
   return items;
 });
