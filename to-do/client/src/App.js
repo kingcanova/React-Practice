@@ -31,7 +31,11 @@ class App extends Component {
             {
                 if(!res.success) this.setState({error: res.error});
                 else this.setState({testing: res.data});
-                console.log(this.state.testing['item']);
+                console.log(this.state.testing);
+		for(var i in this.state.testing)
+		{
+			console.log(this.state.testing[i].item);
+		}
             });
     }
 
