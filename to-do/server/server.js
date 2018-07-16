@@ -53,6 +53,7 @@ router.post('/items',(req,res) =>
   newItem.save(err => 
   {
     if(err) return res.json({success: false, error: err});
+    console.log('added post to database?');
     return res.json({success: true});
   });
 
