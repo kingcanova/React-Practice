@@ -67,6 +67,9 @@ class App extends Component {
                     newItems.push(res.data[i].item);
                     newChecked.push(res.data[i].checked)
                 }
+                console.log(newItems);
+                console.log(newChecked);
+                console.log("out of loadItemsDiff");
                 return newItems, newChecked;
             });
     }
