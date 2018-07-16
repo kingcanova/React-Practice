@@ -32,7 +32,7 @@ class App extends Component {
     }
     loadListItems = () =>
     {
-        fetch('/api/items')
+        return fetch('/api/items')
             .then(data => data.json())
             .then((res) => 
             {
