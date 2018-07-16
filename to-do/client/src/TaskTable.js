@@ -22,7 +22,7 @@ class Table extends Component{
     }
     componentDidMount()
     {
-        /* //console.log("got here");
+        //console.log("got here");
         var i;
         var allboxes = document.getElementsByClassName("checkbox");
         var allItems = document.getElementsByName("unchecked");
@@ -37,12 +37,12 @@ class Table extends Component{
             }
             console.log(this.props.checked[i]);
             console.log(allItems[i]);
-        } */
+        }
     }
 
     componentDidUpdate()
     {
-        //console.log("got here");
+        /* //console.log("got here");
         var i;
         var allboxes = document.getElementsByClassName("checkbox");
         var allItems = document.getElementsByName("unchecked");
@@ -57,7 +57,7 @@ class Table extends Component{
             }
             console.log(i);
             //console.log(allItems[i]);
-        }
+        } */
     }
     
     delete(item)
