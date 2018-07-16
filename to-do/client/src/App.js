@@ -34,7 +34,12 @@ class App extends Component {
                 console.log(this.state.testing);
 		for(var i in this.state.testing)
 		{
-			console.log(this.state.testing[i].item);
+            console.log(this.state.testing[i].item);
+            this.setState(
+                {
+                    items: [...this.state.items,this.state.testing[i].item],
+                    checked: [...this.state.checked,this.state.testing[i].checked]
+                });
 		}
             });
     }
