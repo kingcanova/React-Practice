@@ -48,8 +48,8 @@ class App extends Component {
                             checked: [...this.state.checked,res.data[i].checked]
                         });
                 }
+                return res.data;
             });
-        return res.data;
     }
 
     onChange = (event) => {
