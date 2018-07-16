@@ -38,7 +38,7 @@ router.get('/items',(req,res) =>
   {
     if(err) return res.json({success: false, error:err});
     console.log('Items in list: ' + items);
-    console.log(res.body);
+    console.log('Res.body: '+ res.body);
     return res.json({success: true, data: items});
   });
 });
