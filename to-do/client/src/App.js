@@ -69,7 +69,7 @@ class App extends Component {
                 if(!res.success) this.setState({error: res.error});
                 for(var i in res.data)
                 {
-                    newItems.push(res.data[i].item);
+                    this.dumbStuff.list.push(res.data[i].item);
                     newChecked.push(res.data[i].checked);
                 }
                 this.dumbStuff.c.push(newChecked);
