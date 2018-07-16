@@ -32,10 +32,12 @@ class Table extends Component{
         {
             if(this.props.checked[i] == 1)
             {
-                console.log(allItems[i]);
+                //console.log(allItems[i]);
                 allItems[i].className = "checked";
                 allboxes[i].checked = true;
             }
+            console.log(this.props.checked[i]);
+            console.log(allItems[i]);
         }
     }
     
