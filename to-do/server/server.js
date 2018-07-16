@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 router.get('/items', async (req,res) => 
 {
   //console.log('Got to .get');
-  const items = listItem.find({},(err,items) =>
+  await listItem.find({},(err,items) =>
   {
     if(err) return res.json({success: false, error:err});
     //console.log('Items in list: ' + items);
