@@ -31,16 +31,18 @@ class App extends Component {
             .then((res) => 
             {
                 if(!res.success) this.setState({error: res.error});
-                else this.setState({testing: res.data});
+                //else this.setState({testing: res.data});
                 //console.log(this.state.testing);
-                for(var i in this.state.testing)
-                {
-                    //console.log(this.state.testing[i].item);
-                    this.setState(
-                        {
-                            items: [...this.state.items,this.state.testing[i].item],
-                            checked: [...this.state.checked,this.state.testing[i].checked]
-                        });
+                else{
+                    for(var i in res.data)
+                    {
+                        //console.log(this.state.testing[i].item);
+                        this.setState(
+                            {
+                                items: [...this.state.items,res.data[i].item],
+                                checked: [...this.state.checked,res.data[i].checked]
+                            });
+                    }
                 }
             });
     }
