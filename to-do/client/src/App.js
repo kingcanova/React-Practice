@@ -32,7 +32,7 @@ class App extends Component {
     }
     loadListItems = () =>
     {
-        fetch('/api/items')
+        return fetch('/api/items')
             .then(data => data.json())
             .then((res) => 
             {
@@ -48,7 +48,6 @@ class App extends Component {
                             checked: [...this.state.checked,res.data[i].checked]
                         });
                 }
-                return res.data;
             });
     }
 

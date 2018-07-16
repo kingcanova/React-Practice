@@ -31,15 +31,7 @@ router.get('/', (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
-router.get('/items', async (req,res) => 
-{
-  //console.log('Got to .get');
-  var items = await getItems(req,res);
-  console.log(items);
-  return items;
-});
-
-function getItems(req,res)
+router.get('/items', (req,res) => 
 {
   listItem.find({},(err,items) =>
   {
@@ -47,7 +39,7 @@ function getItems(req,res)
     //console.log('Items in list: ' + items);
     return res.json({success: true, data: items});
   }); 
-}
+});
 
 router.post('/items',(req,res) =>
 {
