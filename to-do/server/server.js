@@ -34,12 +34,12 @@ router.get('/', (req, res) => {
 router.get('/items', async (req,res) => 
 {
   //console.log('Got to .get');
-  var items = await getItems();
+  var items = await getItems(req,res);
   console.log(items);
   return items;
 });
 
-function getItems()
+function getItems(req,res)
 {
   listItem.find({},(err,items) =>
   {
