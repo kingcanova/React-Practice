@@ -21,7 +21,7 @@ class App extends Component {
     
     componentDidMount() 
     {
-        this.loadListItems();
+        //this.loadListItems();
         this.printItemList();
     }
 
