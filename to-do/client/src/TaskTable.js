@@ -67,6 +67,7 @@ class Table extends Component{
     render()
     {
         console.log("RENDERING BEFORE ALL ITEMS ARE LOADED");
+        this.setUpItems();
         return(
             <table>
                 <tbody>
@@ -79,7 +80,6 @@ class Table extends Component{
             </table>
         
         );
-        this.setUpItems();
     }
 }
 
