@@ -33,11 +33,12 @@ router.get('/', (req, res) => {
 
 router.get('/items',(req,res) => 
 {
-  console.log('Got to .get');
+  //console.log('Got to .get');
   listItem.find((err,items) =>
   {
     if(err) return res.json({success: false, error:err});
-    console.log(items);
+    console.log('Items in list: ' + items);
+    console.log(res.body);
     return res.json({success: true, data: items});
   });
 });
@@ -45,7 +46,7 @@ router.get('/items',(req,res) =>
 router.post('/items',(req,res) =>
 {
   const newItem = new listItem();
-
+  console.log("Got to post");
   const {item, checked} = req.body;
   console.log(req.body);
   newItem.item = item;
