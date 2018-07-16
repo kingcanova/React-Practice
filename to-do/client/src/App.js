@@ -24,6 +24,11 @@ class App extends Component {
         this.loadListItems();
     }
 
+    printItemList = async () =>
+    {
+        var testStuff = await this.loadListItems;
+        console.log(testStuff);
+    }
     loadListItems = () =>
     {
         fetch('/api/items')
@@ -31,18 +36,16 @@ class App extends Component {
             .then((res) => 
             {
                 if(!res.success) this.setState({error: res.error});
-                //else this.setState({testing: res.data});
+                else this.setState({testing: res.data});
                 //console.log(this.state.testing);
-                else{
-                    for(var i in res.data)
-                    {
-                        //console.log(this.state.testing[i].item);
-                        this.setState(
-                            {
-                                items: [...this.state.items,res.data[i].item],
-                                checked: [...this.state.checked,res.data[i].checked]
-                            });
-                    }
+                for(var i in res.data)
+                {
+                    //console.log(this.state.testing[i].item);
+                    this.setState(
+                        {
+                            items: [...this.state.items,res.data[i].item],
+                            checked: [...this.state.checked,res.data[i].checked]
+                        });
                 }
             });
     }
