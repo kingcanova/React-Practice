@@ -27,9 +27,8 @@ class App extends Component {
 
     printItemList = async () =>
     {
-        var testItems, testChecking = await this.loadItemsDiff();
+        var testItems = await this.loadItemsDiff();
         console.log(testItems);
-        console.log(testChecking);
     }
     loadListItems = () =>
     {
@@ -70,7 +69,7 @@ class App extends Component {
                 console.log(newItems);
                 console.log(newChecked);
                 console.log("out of loadItemsDiff");
-                return newItems, newChecked;
+                return newItems;
             });
     }
 
