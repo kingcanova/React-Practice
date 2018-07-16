@@ -23,7 +23,7 @@ class Table extends Component{
     
     componentDidMount()
     {
-        console.log("got here");
+        //console.log("got here");
         var i;
         var allboxes = document.getElementsByClassName("checkbox");
         var allItems = document.getElementsByName("unchecked");

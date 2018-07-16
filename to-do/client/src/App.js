@@ -16,12 +16,13 @@ class App extends Component {
             testing: []
 
         };
-        this.loadListItems();
+        //this.loadListItems();
     }
     
     componentDidMount() 
     {
-        //this.loadListItems();
+        const self = this;
+        this.loadListItems();
     }
 
     loadListItems = () =>
@@ -87,9 +88,12 @@ class App extends Component {
                 <button>Submit</button>
             </form>
             <p></p>
+            {this.state && this.state.items &&
+
             <div className = "tableDiv">
                 <Table items = {this.state.items} checked = {this.state.checked} delete = {this.delete.bind(this)}/>
             </div>
+            }
           </div>
         );
     }
