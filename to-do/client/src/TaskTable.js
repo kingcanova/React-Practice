@@ -23,8 +23,6 @@ class Table extends Component{
 
     componentDidUpdate()
     {
-        if(prevState.items.length != this.state.items.length)
-        {
             console.log("Keep count");
             var i;
             var allboxes = document.getElementsByClassName("checkbox");
@@ -41,7 +39,6 @@ class Table extends Component{
                 console.log(this.props.checked[i]);
                 console.log(allItems[i]);
             }
-        }
     }
     componentDidMount()
     {
