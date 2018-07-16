@@ -75,12 +75,17 @@ class App extends Component {
                 {
                     this.dumbStuff.list.push(res.data[i].item);
                     newChecked.push(res.data[i].checked);
+                    this.setState(
+                        {
+                            items: [...this.state.items,res.data[i].item],
+                            checked: [...this.state.checked,res.data[i].checked]
+                        });
                 }
                 this.dumbStuff.c.push(newChecked);
                 this.dumbStuff.list = newItems;
-                console.log("ItemsDiff: " + newChecked);
-                console.log("ItemsDiff: " + newItems);
-                console.log(this.dumbStuff.c);
+                //console.log("ItemsDiff: " + newChecked);
+                //console.log("ItemsDiff: " + newItems);
+                //console.log(this.dumbStuff.c);
                 return newItems;
             });
     }
