@@ -27,8 +27,9 @@ class App extends Component {
 
     printItemList = async () =>
     {
-        var testStuff = await this.loadListItems();
-        console.log(testStuff);
+        var testItems, testChecking = await this.loadItemsDiff();
+        console.log(testItems);
+        console.log(testChecking);
     }
     loadListItems = () =>
     {
@@ -38,7 +39,7 @@ class App extends Component {
             {
                 if(!res.success) this.setState({error: res.error});
                 else this.setState({testing: res.data});
-                console.log(res.data.item);
+                //console.log(res.data.item);
                 for(var i in res.data)
                 {
                     //console.log(this.state.testing[i].item);
@@ -48,6 +49,25 @@ class App extends Component {
                             checked: [...this.state.checked,res.data[i].checked]
                         });
                 }
+            });
+    }
+
+    loadItemsDiff = () =>
+    {
+        fetch('/api/items')
+            .then(data => data.json())
+            .then((res) => 
+            {
+                var newItems = [];
+                var newChecked = [];
+                if(!res.success) this.setState({error: res.error});
+                for(var i in res.data)
+                {
+                    //console.log(this.state.testing[i].item);
+                    newItems.push(res.data[i].item);
+                    newChecked.push(res.data[i].checked)
+                }
+                return newItems, newChecked;
             });
     }
 
