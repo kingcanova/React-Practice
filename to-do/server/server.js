@@ -34,11 +34,11 @@ router.get('/', (req, res) => {
 router.get('/items', async (req,res) => 
 {
   //console.log('Got to .get');
-  await listItem.find({},(err,items) =>
+  const items = await listItem.find({},(err,items) =>
   {
     if(err) return res.json({success: false, error:err});
     //console.log('Items in list: ' + items);
-    return res.json({success: true, data: items});
+    items = res.json({success: true, data: items});
   }); 
 });
 
