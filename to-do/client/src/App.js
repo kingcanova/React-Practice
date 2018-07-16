@@ -33,6 +33,7 @@ class App extends Component {
     printItemList = async() =>
     {
         const testItems = await this.loadItemsDiff();
+        console.log(this.dumbStuff.c);
         return testItems;
     }
     loadListItems = () =>
@@ -70,8 +71,10 @@ class App extends Component {
                     newItems.push(res.data[i].item);
                     newChecked.push(res.data[i].checked);
                 }
+                this.dumbStuff.c.push(newChecked);
                 console.log("ItemsDiff: " + newChecked);
                 console.log("ItemsDiff: " + newItems);
+                console.log(this.dumbStuff.c);
                 return newItems;
             });
     }
