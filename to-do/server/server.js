@@ -34,12 +34,14 @@ router.get('/', (req, res) => {
 router.get('/items', async (req,res) => 
 {
   //console.log('Got to .get');
+  var info;
   const items = await listItem.find({},(err,items) =>
   {
-    if(err) return res.json({success: false, error:err});
+    if(err) info = res.json({success: false, error:err});
     //console.log('Items in list: ' + items);
-    items = res.json({success: true, data: items});
+    info = res.json({success: true, data: items});
   }); 
+  return info;
 });
 
 router.post('/items',(req,res) =>
