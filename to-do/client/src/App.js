@@ -34,6 +34,7 @@ class App extends Component {
     {
         var testItems = await this.loadItemsDiff();
         console.log(this.dumbStuff.c);
+        console.log("WHY WONT THIS SHIT WORK GOD DAMMIT");
         return testItems;
     }
     loadListItems = () =>
