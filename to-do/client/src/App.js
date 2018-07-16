@@ -27,7 +27,7 @@ class App extends Component {
     {
         //this.loadListItems();
         console.log(this.printItemList());
-        //console.log(this.dumbStuff.list);
+        console.log(this.dumbStuff.list);
         this.setState({items: this.dumbStuff.list, checked: this.dumbStuff.c});
         console.log(this.state.items);
 
