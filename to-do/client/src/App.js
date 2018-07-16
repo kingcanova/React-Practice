@@ -22,11 +22,12 @@ class App extends Component {
     componentDidMount() 
     {
         this.loadListItems();
+        this.printItemList();
     }
 
     printItemList = async () =>
     {
-        var testStuff = await this.loadListItems;
+        var testStuff = await this.loadListItems();
         console.log(testStuff);
     }
     loadListItems = () =>
