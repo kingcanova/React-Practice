@@ -23,7 +23,7 @@ class Table extends Component{
 
     componentDidUpdate()
     {
-        if(this.prevState.items.length != this.state.items.length)
+        if(prevState.items.length != this.state.items.length)
         {
             console.log("Keep count");
             var i;
