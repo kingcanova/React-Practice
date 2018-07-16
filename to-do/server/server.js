@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 router.get('/items',(req,res) => 
 {
   //console.log('Got to .get');
-  listItem.find((err,items) =>
+  listItem.find({},(err,items) =>
   {
     if(err) return res.json({success: false, error:err});
     console.log('Items in list: ' + items);

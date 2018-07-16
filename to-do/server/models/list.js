@@ -9,4 +9,4 @@ const ListSchema = new Schema({
 });
 
 // export our module to use in server.js
-export default mongoose.model('listItem', ListSchema);
+export default mongoose.model('item', ListSchema);
