@@ -26,7 +26,7 @@ class App extends Component {
     componentDidMount() 
     {
         //this.loadListItems();
-        console.log(this.printItemList());
+        this.printItemList();
         console.log(this.dumbStuff.c);
 
     }
@@ -34,7 +34,7 @@ class App extends Component {
     printItemList = async () =>
     {
         const testItems = await this.loadItemsDiff();
-        //console.log("WHY WONT THIS SHIT WORK GOD DAMMIT");
+        console.log(this.dumbStuff.c);
         return testItems;
     }
     loadListItems = () =>
