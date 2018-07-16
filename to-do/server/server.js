@@ -31,15 +31,17 @@ router.get('/', (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
-router.get('/items',(req,res) => 
+router.get('/items', async (req,res) => 
 {
   //console.log('Got to .get');
-  const items = await listItem.find({},(err,items) =>
-  {
-    if(err) return res.json({success: false, error:err});
-    //console.log('Items in list: ' + items);
-    return res.json({success: true, data: items});
-  });
+  //const items = listItem.find({},(err,items) =>
+  //{
+  //  if(err) return res.json({success: false, error:err});
+   //console.log('Items in list: ' + items);
+  //  return res.json({success: true, data: items});
+  //}); 
+  const items = await listItem.find({})
+  res.success(items);
 });
 
 router.post('/items',(req,res) =>
