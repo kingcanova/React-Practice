@@ -38,6 +38,14 @@ class App extends Component {
         //This is where you can get stuff from the await
         //console.log(this.dumbStuff.c);
         //console.log(this.dumbStuff.list);
+        for(var i in this.dumbStuff.list)
+        {
+            this.setState(
+                {
+                    items: [...this.state.items,this.dumbStuff.list[i]],
+                    checked: [...this.state.checked,this.dumbStuff.c[i]]
+                });
+        }
         return testItems;
     }
     loadListItems = () =>
