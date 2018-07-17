@@ -21,12 +21,14 @@ class App extends Component {
             c: []
         };
         //this.loadListItems();
+        console.log(this.printItemList());
     }
     
     componentDidMount() 
     {
         //this.loadListItems();
-        console.log(this.printItemList());
+        //console.log(this.printItemList());
+        console.log("componentDidMount");
 
     }
 
@@ -120,7 +122,7 @@ class App extends Component {
     }
     
     render() {
-        //console.log("got to the render part");
+        console.log("got to the render part");
         return(
           <div className="App">
             <h1> To-Do List: </h1>
