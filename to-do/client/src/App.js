@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Table from './TaskTable.js';
-import DATA from './data.js';
 import './App.css';
 
 class App extends Component {
@@ -71,7 +70,7 @@ class App extends Component {
     
     onSubmit = (event) => {
         event.preventDefault();
-        if(this.state.term.replace(/^\s+/g, '').length < 1)
+        if(this.state.term.replace(/^\s+/g, '').length < 1 || this.state.items.includes(this.state.term))
         {
             var warning = document.getElementById('warning');
             warning.style.visibility = "visible";
@@ -131,7 +130,7 @@ class App extends Component {
             <h1> To-Do List: </h1>
             <form className="table" onSubmit={this.onSubmit}>
                 <input value={this.state.term} onChange={this.onChange}/>
-                <p id="warning"> Please type in an item to add it to the To-Do list! </p> 
+                <p id="warning"> Please type in a unique item to add it to the To-Do list! </p> 
                 <button>Submit</button>
             </form>
             <p></p>
