@@ -12,8 +12,7 @@ class App extends Component {
             term: '',
             error: null,
             items: [],
-            checked: [],
-            testing: []
+            checked: []
 
         };
         this.dumbStuff = {
@@ -21,32 +20,21 @@ class App extends Component {
             c: []
         };
         //this.loadListItems();
-        console.log(this.printItemList());
+        this.printItemList();
     }
     
     componentDidMount() 
     {
-        //this.loadListItems();
-        //console.log(this.printItemList());
-        console.log("componentDidMount");
 
     }
 
     printItemList = async() =>
     {
-        const testItems = await this.loadItemsDiff();
+        const promise = await this.loadListItems();
         //This is where you can get stuff from the await
         //console.log(this.dumbStuff.c);
         //console.log(this.dumbStuff.list);
-        for(var i in this.dumbStuff.list)
-        {
-            this.setState(
-                {
-                    items: [...this.state.items,this.dumbStuff.list[i]],
-                    checked: [...this.state.checked,this.dumbStuff.c[i]]
-                });
-        }
-        return testItems;
+        return promise;
     }
     loadListItems = () =>
     {
@@ -55,45 +43,20 @@ class App extends Component {
             .then((res) => 
             {
                 if(!res.success) this.setState({error: res.error});
-                else this.setState({testing: res.data});
-                //console.log(res.data.item);
-                for(var i in res.data)
+                else
                 {
-                    //console.log(this.state.testing[i].item);
-                    this.setState(
-                        {
-                            items: [...this.state.items,res.data[i].item],
-                            checked: [...this.state.checked,res.data[i].checked]
-                        });
+                    //console.log(res.data.item);
+                    for(var i in res.data)
+                    {
+                        //console.log(this.state.testing[i].item);
+                        this.setState(
+                            {
+                                items: [...this.state.items,res.data[i].item],
+                                checked: [...this.state.checked,res.data[i].checked]
+                            });
+                    }
                 }
-            });
-    }
-
-    loadItemsDiff = () =>
-    {
-        fetch('/api/items')
-            .then(data => data.json())
-            .then((res) => 
-            {
-                var newItems = [];
-                var newChecked = [];
-                if(!res.success) this.setState({error: res.error});
-                for(var i in res.data)
-                {
-                    this.dumbStuff.list.push(res.data[i].item);
-                    newChecked.push(res.data[i].checked);
-                    this.setState(
-                        {
-                            items: [...this.state.items,res.data[i].item],
-                            checked: [...this.state.checked,res.data[i].checked]
-                        });
-                }
-                this.dumbStuff.c.push(newChecked);
-                this.dumbStuff.list = newItems;
-                //console.log("ItemsDiff: " + newChecked);
-                //console.log("ItemsDiff: " + newItems);
-                //console.log(this.dumbStuff.c);
-                return newItems;
+                return this.state;
             });
     }
 
@@ -130,7 +93,7 @@ class App extends Component {
     }
     
     render() {
-        console.log("got to the render part");
+        //console.log("got to the render part");
         return(
           <div className="App">
             <h1> To-Do List: </h1>

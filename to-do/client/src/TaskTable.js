@@ -5,6 +5,7 @@ class Table extends Component{
     constructor(props)
     {
         super(props);
+        this.tableSize = 0;
         //console.log(props);
     }
     
@@ -22,11 +23,15 @@ class Table extends Component{
     }
     componentDidMount()
     {
-        //console.log("got here");
+
+    }
+
+    updateCheckboxes()
+    {
         var i;
         var allboxes = document.getElementsByClassName("checkbox");
         var allItems = document.getElementsByName("unchecked");
-        console.log("Length of Items list: " + allItems.length);
+        //console.log("Length of Items list: " + allItems.length);
         for(i = 0; i < allboxes.length; i++)
         {
             if(this.props.checked[i] == 1)
@@ -37,6 +42,16 @@ class Table extends Component{
             }
             //console.log(this.props.checked[i]);
             //console.log(allItems[i]);
+        }
+        this.tableSize = allboxes.length;
+    }
+
+    componentDidUpdate()
+    {
+        if(this.tableSize != document.getElementsByClassName("checkbox").length)
+        {
+            console.log("updating table");
+            this.updateCheckboxes();
         }
     }
     
