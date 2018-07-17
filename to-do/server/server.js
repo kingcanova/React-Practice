@@ -58,6 +58,28 @@ router.post('/items',(req,res) =>
 
 });
 
+router.put('/items',(req,res) =>
+{
+  listItem.update({
+    item: req.body.item,
+  },{$set: {checked: req.body.checked}}, function(err) {
+    if(err) return res.send(err);
+    res.json({message: 'Updated'});
+
+  });
+});
+
+router.delete('/items',(req,res) =>
+{
+  console.log(req.body.item);
+  listItem.remove({
+    item: req.body.item
+  }, function(err) {
+    if(err) return res.send(err);
+    res.json({message: 'Deleted'});
+  });
+});
+
 // Use our router configuration when we call /api
 app.use('/api', router);
 

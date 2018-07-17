@@ -28,6 +28,11 @@ class App extends Component {
 
     }
 
+    componentWillUnmount()
+    {
+
+    }
+
     printItemList = async() =>
     {
         const promise = await this.loadListItems();
@@ -79,19 +84,46 @@ class App extends Component {
         {
             var warning = document.getElementById('warning');
             warning.style.visibility = "hidden";
-            this.setState({
-                term:'',
-                items: [...this.state.items,this.state.term]
+            const {term} = this.state;
+            const item = term;
+            const checked = 0;
+            fetch('/api/items', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({item, checked}),
+            }).then(res => res.json()).then((res) => {
+                if(!res.success) this.setState({error: res.error.message || res.error});
+                else this.setState({
+                    term: '',
+                    items: [...this.state.items,this.state.term]
+                });
             });
         }
     }
     delete(item)
     {
+        fetch('/api/items', {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({item}),
+        }).then(res => res.json()).then((res) => {
+            if(!res.success) this.setState({error: res.error.message || res.error});
+        });
         this.setState(prevState => ({
             items: prevState.items.filter(el => el != item)
         }));
     }
-    
+    put(item,checked)
+    {
+        console.log("Put: " + item + " : " + checked);
+        fetch('/api/items', {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({item,checked}),
+        }).then(res => res.json()).then((res) => {
+            if(!res.success) this.setState({error: res.error.message || res.error});
+        });
+    }
     render() {
         //console.log("got to the render part");
         return(
@@ -104,7 +136,7 @@ class App extends Component {
             </form>
             <p></p>
             <div className = "tableDiv">
-                <Table items = {this.state.items} checked = {this.state.checked} delete = {this.delete.bind(this)}/>
+                <Table items = {this.state.items} checked = {this.state.checked} delete = {this.delete.bind(this)} put = {this.put.bind(this)}/>
             </div>
           </div>
         );

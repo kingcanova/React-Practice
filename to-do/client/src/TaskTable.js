@@ -12,14 +12,19 @@ class Table extends Component{
     crossOut(item)
     {
         var itemName = document.getElementById(item);
+        var checked;
         if(itemName.className == "unchecked")
         {
             itemName.className = "checked";
+            checked = 1;
         }
         else
         {
             itemName.className = "unchecked";
+            checked = 0;
         }
+        //this.put.bind(this,item,checked);
+        this.put(item,checked);
     }
     componentDidMount()
     {
@@ -44,6 +49,7 @@ class Table extends Component{
             //console.log(allItems[i]);
         }
         this.tableSize = allboxes.length;
+        console.log("Table Size: " + this.tableSize);
     }
 
     componentDidUpdate()
@@ -55,9 +61,22 @@ class Table extends Component{
         }
     }
     
+    removeCheckProp(item)
+    {
+        var index = this.props.items.indexOf(item);
+        this.props.checked.splice(index,1);
+    }
+
+    put(item,checked)
+    {
+        this.props.put(item,checked);
+    }
+
     delete(item)
     {
+        this.removeCheckProp(item);
         this.props.delete(item);
+        console.log(this.props.checked.length);
     }
     
     render()
