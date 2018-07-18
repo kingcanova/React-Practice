@@ -8,6 +8,10 @@ import logger from 'morgan';
 import mongoose from 'mongoose';
 import { getSecret } from './secret';
 import listItem from './models/list';
+import schema from './Schema';
+
+import { graphql } from 'graphql';
+import graphqlHTTP from 'express-graphql';
 
 // and create our instances
 const app = express();
@@ -26,6 +30,12 @@ mongoose.connect(getSecret('dbURI'));
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+//GraphQL stuff
+app.use('/graphql', graphqlHTTP (req => ({
+  schema: schema,
+  graphiql:true
+ })));
+
 // now we can set the route path & initialize the API
 router.get('/', (req, res) => {
   res.json({ message: 'Hello, World!' });
@@ -37,6 +47,7 @@ router.get('/items', (req,res) =>
   {
     if(err) return res.json({success: false, error:err});
     //console.log('Items in list: ' + items);
+    //console.log(items);
     return res.json({success: true, data: items});
   }); 
 });
@@ -44,15 +55,16 @@ router.get('/items', (req,res) =>
 router.post('/items',(req,res) =>
 {
   const newItem = new listItem();
-  console.log("Got to post");
+  //console.log("Got to post");
   const {item, checked} = req.body;
-  console.log(req.body);
+  //console.log(req.body);
   newItem.item = item;
   newItem.checked = checked;
+  console.log(newItem);
   newItem.save(err => 
   {
     if(err) return res.json({success: false, error: err});
-    console.log('added post to database?');
+    //console.log('added post to database?');
     return res.json({success: true});
   });
 

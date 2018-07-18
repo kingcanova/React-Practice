@@ -5,7 +5,6 @@ import './App.css';
 class App extends Component {
     constructor(props)
     {
-        //console.log(DATA.items);
         super(props);
         this.state = {
             term: '',
@@ -14,11 +13,6 @@ class App extends Component {
             checked: []
 
         };
-        this.dumbStuff = {
-            list: [],
-            c: []
-        };
-        //this.loadListItems();
         this.printItemList();
     }
     
@@ -36,8 +30,6 @@ class App extends Component {
     {
         const promise = await this.loadListItems();
         //This is where you can get stuff from the await
-        //console.log(this.dumbStuff.c);
-        //console.log(this.dumbStuff.list);
         return promise;
     }
     loadListItems = () =>
